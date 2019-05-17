@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BUILDING BLOCK GAME</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width", initial-scale=1.0>
+	<meta name="description" content="Online Block Building Game">
+	<meta name="keywords" content="Building, Block, Online, Oldskool, Computer, Game">
+	<meta name="author" content="Patrick Sawyer">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="icon" type="image/png" href="images/image.png" sizes="16x16">
+	<script type="text/javascript" src="scripts/script.js"></script>
+</head>
+<body>
+
+	<div id="saveContainer">
+		<div id="save">
+			<div id="insert">SAVE SCORE?</div>
+			<form autocomplete="off" name="endGameForm">
+				<input type="text" name="name" maxlength="3" size="3" id="inputText" spellcheck="false" placeholder="NAME" onfocus="this.placeholder = ''" onblur="this.placeholder = 'NAME'">
+				<input type="button" class="myButton" value="YES"  onclick="formComplete()"/>
+				<input type="button" class="myButton" value="NO"  onclick="dontSave()"/>
+			</form>
+		</div>
+	</div>
+	<div id="whole">
+		<div class="third">
+			<div class="left">
+				<div id="level"><p>LEVEL 1:</p></div>
+				<div id="lines"><p>0 LINES</p></div>
+				<div id="score"><p>0000000</p></div>
+			</div>
+			<div class="left">
+				<small>Left Arrow / Tap Left: MOVE LEFT<br>Right Arrow / Tap Right: MOVE RIGHT<br>Up Arrow / Tap Above: ROTATE<br>Down Arrow / Tap Below: DROP</small>			
+			</div>
+			<div class="left">
+				<a href="#" class="myButton" onclick="start()">START NEW GAME</a>
+			</div>
+		</div>
+		<div class="third">
+			<div id="mainGame" onclick="pixelChecker()">
+				<div class = "row">
+					<div class="box" id="r0s0"></div>
+					<div class="box" id="r0s1"></div>
+					<div class="box" id="r0s2"></div>
+					<div class="box" id="r0s3"></div>
+					<div class="box" id="r0s4"></div>
+					<div class="box" id="r0s5"></div>
+					<div class="box" id="r0s6"></div>
+					<div class="box" id="r0s7"></div>
+					<div class="box" id="r0s8"></div>
+					<div class="box" id="r0s9"></div>
+				</div>
+				<div class = "row">
+					<div class="box" id="r1s0"></div>
+					<div class="box" id="r1s1"></div>
+					<div class="box" id="r1s2"></div>
+					<div class="box" id="r1s3"></div>
+					<div class="box" id="r1s4"></div>
+					<div class="box" id="r1s5"></div>
+					<div class="box" id="r1s6"></div>
+					<div class="box" id="r1s7"></div>
+					<div class="box" id="r1s8"></div>
+					<div class="box" id="r1s9"></div>
+				</div>
+				<div class = "row">
+					<div class="box" id="r2s0"></div>
+					<div class="box" id="r2s1"></div>
+					<div class="box" id="r2s2"></div>
+					<div class="box" id="r2s3"></div>
+					<div class="box" id="r2s4"></div>
+					<div class="box" id="r2s5"></div>
+					<div class="box" id="r2s6"></div>
+					<div class="box" id="r2s7"></div>
+					<div class="box" id="r2s8"></div>
+					<div class="box" id="r2s9"></div>
+				</div>
+				<div class = "row">
+					<div class="box" id="r3s0"></div>
+					<div class="box" id="r3s1"></div>
+					<div class="box" id="r3s2"></div>
+					<div class="box" id="r3s3"></div>
+					<div class="box" id="r3s4"></div>
+					<div class="box" id="r3s5"></div>
+					<div class="box" id="r3s6"></div>
+					<div class="box" id="r3s7"></div>
+					<div class="box" id="r3s8"></div>
+					<div class="box" id="r3s9"></div>
+				</div>
+				<div class = "row">
+					<div class="box" id="r4s0"></div>
+					<div class="box" id="r4s1"></div>
+					<div class="box" id="r4s2"></div>
+					<div class="box" id="r4s3"></div>
+					<div class="box" id="r4s4"></div>
+					<div class="box" id="r4s5"></div>
+					<div class="box" id="r4s6"></div>
+					<div class="box" id="r4s7"></div>
+					<div class="box" id="r4s8"></div>
+					<div class="box" id="r4s9"></div>
+				</div>
+				<div class = "row">
+					<div class="box" id="r5s0"></div>
+					<div class="box" id="r5s1"></div>
+					<div class="box" id="r5s2"></div>
+					<div class="box" id="r5s3"></div>
+					<div class="box" id="r5s4"></div>
+					<div class="box" id="r5s5"></div>
+					<div class="box" id="r5s6"></div>
+					<div class="box" id="r5s7"></div>
+					<div class="box" id="r5s8"></div>
+					<div class="box" id="r5s9"></div>
+				</div>
+				<div class = "row">
+					<div class="box" id="r6s0"></div>
+					<div class="box" id="r6s1"></div>
+					<div class="box" id="r6s2"></div>
+					<div class="box" id="r6s3"></div>
+					<div class="box" id="r6s4"></div>
+					<div class="box" id="r6s5"></div>
+					<div class="box" id="r6s6"></div>
+					<div class="box" id="r6s7"></div>
+					<div class="box" id="r6s8"></div>
+					<div class="box" id="r6s9"></div>
+				</div>
+				<div class = "row">
+					<div class="box" id="r7s0"></div>
+					<div class="box" id="r7s1"></div>
+					<div class="box" id="r7s2"></div>
+					<div class="box" id="r7s3"></div>
+					<div class="box" id="r7s4"></div>
+					<div class="box" id="r7s5"></div>
+					<div class="box" id="r7s6"></div>
+					<div class="box" id="r7s7"></div>
+					<div class="box" id="r7s8"></div>
+					<div class="box" id="r7s9"></div>
+				</div>
+				<div class = "row">
+					<div class="box" id="r8s0"></div>
+					<div class="box" id="r8s1"></div>
+					<div class="box" id="r8s2"></div>
+					<div class="box" id="r8s3"></div>
+					<div class="box" id="r8s4"></div>
+					<div class="box" id="r8s5"></div>
+					<div class="box" id="r8s6"></div>
+					<div class="box" id="r8s7"></div>
+					<div class="box" id="r8s8"></div>
+					<div class="box" id="r8s9"></div>
+				</div>
+				<div class = "row">
+					<div class="box" id="r9s0"></div>
+					<div class="box" id="r9s1"></div>
+					<div class="box" id="r9s2"></div>
+					<div class="box" id="r9s3"></div>
+					<div class="box" id="r9s4"></div>
+					<div class="box" id="r9s5"></div>
+					<div class="box" id="r9s6"></div>
+					<div class="box" id="r9s7"></div>
+					<div class="box" id="r9s8"></div>
+					<div class="box" id="r9s9"></div>
+				</div>
+				<div class = "row">
+					<div class="box" id="r10s0"></div>
+					<div class="box" id="r10s1"></div>
+					<div class="box" id="r10s2"></div>
+					<div class="box" id="r10s3"></div>
+					<div class="box" id="r10s4"></div>
+					<div class="box" id="r10s5"></div>
+					<div class="box" id="r10s6"></div>
+					<div class="box" id="r10s7"></div>
+					<div class="box" id="r10s8"></div>
+					<div class="box" id="r10s9"></div>
+				</div>
+				<div class = "row">
+					<div class="box" id="r11s0"></div>
+					<div class="box" id="r11s1"></div>
+					<div class="box" id="r11s2"></div>
+					<div class="box" id="r11s3"></div>
+					<div class="box" id="r11s4"></div>
+					<div class="box" id="r11s5"></div>
+					<div class="box" id="r11s6"></div>
+					<div class="box" id="r11s7"></div>
+					<div class="box" id="r11s8"></div>
+					<div class="box" id="r11s9"></div>
+				</div>
+				<div class = "row">
+					<div class="box" id="r12s0"></div>
+					<div class="box" id="r12s1"></div>
+					<div class="box" id="r12s2"></div>
+					<div class="box" id="r12s3"></div>
+					<div class="box" id="r12s4"></div>
+					<div class="box" id="r12s5"></div>
+					<div class="box" id="r12s6"></div>
+					<div class="box" id="r12s7"></div>
+					<div class="box" id="r12s8"></div>
+					<div class="box" id="r12s9"></div>
+				</div>
+				<div class = "row">
+					<div class="box" id="r13s0"></div>
+					<div class="box" id="r13s1"></div>
+					<div class="box" id="r13s2"></div>
+					<div class="box" id="r13s3"></div>
+					<div class="box" id="r13s4"></div>
+					<div class="box" id="r13s5"></div>
+					<div class="box" id="r13s6"></div>
+					<div class="box" id="r13s7"></div>
+					<div class="box" id="r13s8"></div>
+					<div class="box" id="r13s9"></div>
+				</div>
+				<div class = "row">
+					<div class="box" id="r14s0"></div>
+					<div class="box" id="r14s1"></div>
+					<div class="box" id="r14s2"></div>
+					<div class="box" id="r14s3"></div>
+					<div class="box" id="r14s4"></div>
+					<div class="box" id="r14s5"></div>
+					<div class="box" id="r14s6"></div>
+					<div class="box" id="r14s7"></div>
+					<div class="box" id="r14s8"></div>
+					<div class="box" id="r14s9"></div>
+				</div>
+				<div class = "row">
+					<div class="box" id="r15s0"></div>
+					<div class="box" id="r15s1"></div>
+					<div class="box" id="r15s2"></div>
+					<div class="box" id="r15s3"></div>
+					<div class="box" id="r15s4"></div>
+					<div class="box" id="r15s5"></div>
+					<div class="box" id="r15s6"></div>
+					<div class="box" id="r15s7"></div>
+					<div class="box" id="r15s8"></div>
+					<div class="box" id="r15s9"></div>
+				</div>
+				<div class = "row">
+					<div class="box" id="r16s0"></div>
+					<div class="box" id="r16s1"></div>
+					<div class="box" id="r16s2"></div>
+					<div class="box" id="r16s3"></div>
+					<div class="box" id="r16s4"></div>
+					<div class="box" id="r16s5"></div>
+					<div class="box" id="r16s6"></div>
+					<div class="box" id="r16s7"></div>
+					<div class="box" id="r16s8"></div>
+					<div class="box" id="r16s9"></div>
+				</div>
+				<div class = "row">
+					<div class="box" id="r17s0"></div>
+					<div class="box" id="r17s1"></div>
+					<div class="box" id="r17s2"></div>
+					<div class="box" id="r17s3"></div>
+					<div class="box" id="r17s4"></div>
+					<div class="box" id="r17s5"></div>
+					<div class="box" id="r17s6"></div>
+					<div class="box" id="r17s7"></div>
+					<div class="box" id="r17s8"></div>
+					<div class="box" id="r17s9"></div>
+				</div>
+				<div class = "row">
+					<div class="box" id="r18s0"></div>
+					<div class="box" id="r18s1"></div>
+					<div class="box" id="r18s2"></div>
+					<div class="box" id="r18s3"></div>
+					<div class="box" id="r18s4"></div>
+					<div class="box" id="r18s5"></div>
+					<div class="box" id="r18s6"></div>
+					<div class="box" id="r18s7"></div>
+					<div class="box" id="r18s8"></div>
+					<div class="box" id="r18s9"></div>
+				</div>
+				<div class = "row">
+					<div class="box" id="r19s0"></div>
+					<div class="box" id="r19s1"></div>
+					<div class="box" id="r19s2"></div>
+					<div class="box" id="r19s3"></div>
+					<div class="box" id="r19s4"></div>
+					<div class="box" id="r19s5"></div>
+					<div class="box" id="r19s6"></div>
+					<div class="box" id="r19s7"></div>
+					<div class="box" id="r19s8"></div>
+					<div class="box" id="r19s9"></div>
+				</div>
+			</div>
+		</div>
+		<div class="third">
+			<div id="next">
+				<p>NEXT:</p>
+				<div id="picCont"><div id="picture"></div></div>
+			</div>
+			<div id="highTitle"><p>HIGH SCORES</p></div>
+			<div id="highScores">
+				<small>
+					<table>
+						<tr>
+							<th>NAME</th>
+							<th>SCORE</th>
+						</tr>
+						<tr><td id="n0"></td><td id="s0"></td></tr>
+						<tr><td id="n1"></td><td id="s1"></td></tr>
+						<tr><td id="n2"></td><td id="s2"></td></tr>
+						<tr><td id="n3"></td><td id="s3"></td></tr>
+						<tr><td id="n4"></td><td id="s4"></td></tr>
+						<tr><td id="n5"></td><td id="s5"></td></tr>
+						<tr><td id="n6"></td><td id="s6"></td></tr>
+						<tr><td id="n7"></td><td id="s7"></td></tr>
+						<tr><td id="n8"></td><td id="s8"></td></tr>
+						<tr><td id="n9"></td><td id="s9"></td></tr>
+					</table>
+				</small>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
