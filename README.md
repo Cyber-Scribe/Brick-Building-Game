@@ -9,3 +9,5 @@ I wrote this code from scratch entirely myself and am open to any feedback/criti
 The only issue with it is that it does not work in Explorer. I'm sure I could get it to work with a bit more effore but I have moved onto other projects now.
 
 This is completely open source and you are free to re-use, ammend and take ideas from it as you want.
+
+A full working version can be found at www.disco-computer.com
