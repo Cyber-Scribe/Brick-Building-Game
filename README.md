@@ -1,6 +1,4 @@
-# Javascript-Brick-Building-Game
-
-This is a brick building game that in no way resembles any brick building games from before(!).
+# Javascript-Tetris
 
 The main gameplay is written in Javascript/HTML/CSS, but it also has some PHP code to talk to a MySQL database to save high scores. I used XMLHttpRequest in conjunction with PHP instead of form submit to avoid the page refreshing when sending data to the database.
 
